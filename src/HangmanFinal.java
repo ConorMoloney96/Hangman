@@ -2,9 +2,10 @@ import javax.swing.JOptionPane;
 
 public class HangmanFinal 
 { 
+	private static boolean weArePlaying=false;
 	public static void main (String [] args)
 	{ 
-		boolean weArePlaying=true;
+		
 		while (weArePlaying)
 		{
 		
@@ -20,6 +21,12 @@ public class HangmanFinal
 		
 		
 		String playAgain=JOptionPane.showInputDialog(null, "Would you like to play again? (yes/no)");
+		if(playAgain==null)
+		{ 
+			JOptionPane.showMessageDialog(null, "You have exited the program");
+			weArePlaying=false;
+		}
+		
 		if (playAgain.equalsIgnoreCase("no"))
 			weArePlaying=false;
 		
@@ -72,7 +79,13 @@ public class HangmanFinal
 		  guess = JOptionPane.showInputDialog(null, "Enter your guess: ");                                       //input
 	      
 	     
-	      if(guess.isEmpty())                                          //if the input is empty
+		  if(guess==null)
+			{ 
+				JOptionPane.showMessageDialog(null, "You have exited the program);
+				weArePlaying=false;
+			}
+		  
+		  if(guess.isEmpty())                                          //if the input is empty
 	      {
 			 System.out.println("No entry\n");
 			  }	  
